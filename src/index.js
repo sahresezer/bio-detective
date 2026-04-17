@@ -1,0 +1,1 @@
+import '../includes/modules/ArticleDetective/ArticleDetectiveModule.jsx';

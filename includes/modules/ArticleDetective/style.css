@@ -1,0 +1,393 @@
+/**
+ * Bio Detective - Article Detective Module
+ * Biyonaz Styling & Design System
+ * 
+ * @package Bio_Detective
+ * @subpackage Styles
+ * @since 1.0.0
+ */
+
+/* ==========================================================================
+   Article Detective Container
+   ========================================================================== */
+
+.article-detective-v4,
+.bio-detective-article-container {
+  padding: 30px;
+  border-radius: 20px;
+  background-color: #fff;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ==========================================================================
+   Biyonaz Guidance Box
+   ========================================================================== */
+
+.biyonaz-box {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #f8f9fa;
+  border-radius: 15px;
+  border-left: 6px solid;
+  margin-bottom: 20px;
+  animation: slideInDown 0.4s ease;
+}
+
+.biyonaz-box.mood-neutral {
+  border-left-color: #e91e63;
+}
+
+.biyonaz-box.mood-happy {
+  border-left-color: #4caf50;
+  background-color: #f1f8f3;
+}
+
+.biyonaz-box.mood-warning {
+  border-left-color: #ff9800;
+  background-color: #fff3e0;
+}
+
+.biyonaz-box.mood-searching {
+  border-left-color: #2196f3;
+  background-color: #e3f2fd;
+}
+
+.biyonaz-avatar {
+  font-size: 40px;
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.biyonaz-text {
+  margin: 5px 0 0 0;
+  font-size: 14px;
+  font-style: italic;
+  color: #444;
+  line-height: 1.5;
+}
+
+.biyonaz-message-title {
+  font-weight: 700;
+  margin-bottom: 5px;
+  font-size: 15px;
+}
+
+/* ==========================================================================
+   Input Area
+   ========================================================================== */
+
+.article-textarea {
+  width: 100%;
+  height: 150px;
+  padding: 15px;
+  border-radius: 12px;
+  border: 2px solid #e0e0e0;
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: 'Courier New', monospace;
+  resize: vertical;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+}
+
+.article-textarea:focus {
+  border-color: #e91e63;
+  box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.1);
+}
+
+.article-textarea::placeholder {
+  color: #bdbdbd;
+}
+
+/* ==========================================================================
+   Button Group
+   ========================================================================== */
+
+.button-group {
+  margin-top: 20px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.analyze-btn,
+.export-btn {
+  padding: 12px 25px;
+  border-radius: 25px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.analyze-btn {
+  background-color: #e91e63;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(233, 30, 99, 0.3);
+}
+
+.analyze-btn:hover {
+  background-color: #c2185b;
+  box-shadow: 0 6px 20px rgba(233, 30, 99, 0.4);
+  transform: translateY(-2px);
+}
+
+.analyze-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(233, 30, 99, 0.3);
+}
+
+.export-btn {
+  background-color: #03dac6;
+  color: #000;
+  box-shadow: 0 4px 15px rgba(3, 218, 198, 0.3);
+}
+
+.export-btn:hover {
+  background-color: #02b8a6;
+  box-shadow: 0 6px 20px rgba(3, 218, 198, 0.4);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Results Area
+   ========================================================================== */
+
+.results-area {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid #f0f0f0;
+  animation: fadeIn 0.5s ease;
+}
+
+.results-header {
+  font-size: 12px;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Gene Chips
+   ========================================================================== */
+
+.chip-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.gene-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  background-color: #fce4ec;
+  color: #ad1457;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 1px solid #f8bbd0;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.gene-chip:hover {
+  background-color: #f8bbd0;
+  color: #880e4f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(233, 30, 99, 0.2);
+  text-decoration: none;
+}
+
+.gene-chip:active {
+  transform: translateY(0);
+}
+
+.gene-chip-icon {
+  font-size: 16px;
+}
+
+/* ==========================================================================
+   P-Value Display
+   ========================================================================== */
+
+.pvalue-container {
+  margin-top: 20px;
+}
+
+.pvalue-list {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.pvalue-tag {
+  display: inline-block;
+  background-color: #fff3e0;
+  color: #e65100;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  border: 1px solid #ffe0b2;
+  font-family: 'Courier New', monospace;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Loading & Animation States
+   ========================================================================== */
+
+.bio-detective-loading {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #e91e63;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+
+@media (max-width: 768px) {
+  .article-detective-v4,
+  .bio-detective-article-container {
+    padding: 20px;
+  }
+
+  .biyonaz-box {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .biyonaz-avatar {
+    width: 100%;
+    text-align: center;
+  }
+
+  .article-textarea {
+    height: 120px;
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .analyze-btn,
+  .export-btn {
+    width: 100%;
+  }
+
+  .chip-container {
+    gap: 8px;
+  }
+
+  .gene-chip {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+}
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
+
+.article-detective-v4 *:focus-visible,
+.bio-detective-article-container *:focus-visible {
+  outline: 2px solid #e91e63;
+  outline-offset: 2px;
+}
+
+.gene-chip:focus-visible {
+  outline: 2px dashed #ad1457;
+  outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Dark Mode Support (if needed)
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  .article-detective-v4,
+  .bio-detective-article-container {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+  }
+
+  .biyonaz-box {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+  }
+
+  .article-textarea {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    border-color: #404040;
+  }
+
+  .article-textarea:focus {
+    border-color: #e91e63;
+    box-shadow: 0 0 0 3px rgba(233, 30, 99, 0.2);
+  }
+
+  .results-area {
+    border-top-color: #404040;
+  }
+}
