@@ -15,11 +15,10 @@ const ArticleDetective = () => {
     message: "I'm ready to help! Paste your text and let's start the investigation.",
     mood: 'neutral' // neutral, happy, warning, searching
   });
-  const [insight, setInsight] = useState(null);
 
   const stopWords = ['DNA', 'RNA', 'PCR', 'ATP', 'PH', 'CELL', 'GENE', 'LAB', 'GEL', 'SDS'];
 
-  const performAnalysis = async () => {
+  const performAnalysis = () => {
     const genePattern = /\b[A-Z][A-Z0-9]{2,8}\b/g;
     const pValuePattern = /p\s*[<>=]\s*[0-9.]+/gi;
 
@@ -32,99 +31,11 @@ const ArticleDetective = () => {
       analysisDate: new Date().toLocaleString()
     });
 
-    const localInsight = detectBioInsights(articleText, uniqueGenes, pValues);
-    setInsight(localInsight);
-
-    updateBiyonaz(uniqueGenes, pValues, localInsight);
-
-    if ( window.BioDective && window.BioDective.apiUrl ) {
-      try {
-        const response = await fetch(`${window.BioDective.apiUrl}analyze`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-WP-Nonce': window.BioDective.nonce
-          },
-          body: JSON.stringify({ text: articleText })
-        });
-        if (response.ok) {
-          const data = await response.json();
-          setResults({
-            detectedGenes: data.genes || uniqueGenes,
-            significantValues: data.pvalues || pValues,
-            analysisDate: new Date().toLocaleString()
-          });
-          setInsight(data.insight || localInsight);
-          updateBiyonaz(data.genes || uniqueGenes, data.pvalues || pValues, data.insight || localInsight);
-        }
-      } catch (error) {
-        console.warn('Bio Detective API failed, falling back to local insight.', error);
-      }
-    }
+    // --- Biyonaz Logic Engine ---
+    updateBiyonaz(uniqueGenes, pValues);
   };
 
-  const detectBioInsights = (text, genes, pvals) => {
-    const insights = {
-      techniques: [],
-      species: [],
-      datasets: [],
-      summary: '',
-      score: 0
-    };
-
-    const techniqueRules = [
-      { label: 'RNA-seq', regex: /\bRNA-?seq\b/i },
-      { label: 'ChIP-seq', regex: /\bChIP-?seq\b/i },
-      { label: 'qPCR', regex: /\bqPCR\b/i },
-      { label: 'CRISPR', regex: /\bCRISPR\b/i },
-      { label: 'Mass spectrometry', regex: /mass spectrom(etery|etry)\b/i },
-      { label: 'Single-cell', regex: /single[-\s]?cell/i },
-      { label: 'GWAS', regex: /\bGWAS\b|genome[-\s]?wide association/i }
-    ];
-    const speciesRules = [
-      { label: 'Human', regex: /\b(Homo sapiens|human)\b/i },
-      { label: 'Mouse', regex: /\b(Mus musculus|mouse)\b/i },
-      { label: 'Yeast', regex: /\b(Saccharomyces cerevisiae|yeast)\b/i },
-      { label: 'Zebrafish', regex: /\b(Danio rerio|zebrafish)\b/i }
-    ];
-    const datasetRules = [
-      { label: 'GEO', regex: /\bGEO\b|Gene Expression Omnibus/i },
-      { label: 'SRA', regex: /\bSRA\b|Sequence Read Archive/i },
-      { label: 'TCGA', regex: /\bTCGA\b/i }
-    ];
-
-    techniqueRules.forEach(rule => {
-      if (rule.regex.test(text)) {
-        insights.techniques.push(rule.label);
-      }
-    });
-    speciesRules.forEach(rule => {
-      if (rule.regex.test(text)) {
-        insights.species.push(rule.label);
-      }
-    });
-    datasetRules.forEach(rule => {
-      if (rule.regex.test(text)) {
-        insights.datasets.push(rule.label);
-      }
-    });
-
-    insights.techniques = [...new Set(insights.techniques)];
-    insights.species = [...new Set(insights.species)];
-    insights.datasets = [...new Set(insights.datasets)];
-
-    insights.score = Math.min(100, 20 + genes.length * 5 + pvals.length * 10 + insights.techniques.length * 15 + insights.datasets.length * 10);
-    if (insights.score < 30) {
-      insights.summary = 'Free premium insight: this text is light on explicit experimental detail. Add statistics, dataset names, or method descriptions.';
-    } else if (insights.score < 65) {
-      insights.summary = 'Free premium insight: a solid article structure is present, but some bioinformatics context can be strengthened with dataset or species details.';
-    } else {
-      insights.summary = 'Free premium insight: excellent bioinformatics signal. The analysis contains strong experimental terms and research dataset clues.';
-    }
-    return insights;
-  };
-
-  const updateBiyonaz = (genes, pvals, insightData) => {
+  const updateBiyonaz = (genes, pvals) => {
     if (genes.length === 0 && pvals.length === 0) {
       setBiyonazFeedback({
         message: "Hmm... Detective, this text seems empty of molecular data. Are you sure this is a scientific abstract?",
@@ -137,12 +48,12 @@ const ArticleDetective = () => {
       });
     } else if (genes.length > 5) {
       setBiyonazFeedback({
-        message: `Jackpot! I found ${genes.length} gene candidates. This paper seems to be high-throughput! Free insight score: ${insightData?.score || 0}.`,
+        message: `Jackpot! I found ${genes.length} gene candidates. This paper seems to be high-throughput!`,
         mood: 'happy'
       });
     } else {
       setBiyonazFeedback({
-        message: "Analysis complete. I've highlighted the key entities for your report, including free bioinformatics insight.",
+        message: "Analysis complete. I've highlighted the key entities for your report.",
         mood: 'neutral'
       });
     }
@@ -167,7 +78,7 @@ const ArticleDetective = () => {
       />
 
       <div style={styles.buttonGroup}>
-        <button onClick={performAnalysis} style={styles.analyzeBtn}>Ask Biyonaz for Free Premium Insight</button>
+        <button onClick={performAnalysis} style={styles.analyzeBtn}>Ask Biyonaz to Scan</button>
       </div>
 
       {/* Results Rendering */}
@@ -180,18 +91,6 @@ const ArticleDetective = () => {
                 🧬 {gene}
               </a>
             ))}
-          </div>
-        </div>
-      )}
-      {insight && (
-        <div style={styles.resultsArea}>
-          <h3 style={styles.subHeader}>Free Bioinformatics Insight</h3>
-          <p style={styles.insightSummary}>{insight.summary}</p>
-          <div style={styles.insightMeta}>
-            {insight.techniques.length > 0 && <span>Technique: {insight.techniques.join(', ')}</span>}
-            {insight.species.length > 0 && <span>Species: {insight.species.join(', ')}</span>}
-            {insight.datasets.length > 0 && <span>Datasets: {insight.datasets.join(', ')}</span>}
-            <span>Insight Score: {insight.score}/100</span>
           </div>
         </div>
       )}
@@ -214,8 +113,6 @@ const styles = {
   subHeader: { fontSize: '12px', color: '#aaa', textTransform: 'uppercase', marginBottom: '10px' },
   chipContainer: { display: 'flex', flexWrap: 'wrap', gap: '8px' },
   geneChip: { textDecoration: 'none', backgroundColor: '#fce4ec', color: '#ad1457', padding: '6px 15px', borderRadius: '20px', fontSize: '13px', fontWeight: 'bold' },
-  insightSummary: { margin: '0 0 10px 0', fontSize: '14px', color: '#333' },
-  insightMeta: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '10px', fontSize: '12px', color: '#555' },
   moodColors: {
     neutral: '#e91e63',
     happy: '#4caf50',
