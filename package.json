@@ -20,18 +20,15 @@
   ],
   "author": "BioInfoRange Team",
   "license": "GPL-2.0-or-later",
-  "scripts": {
-    "build": "webpack --mode production --entry ./includes/modules/ArticleDetective/ArticleDetectiveModule.jsx --output-path ./dist",
-    "dev": "webpack --mode development --watch --entry ./includes/modules/ArticleDetective/ArticleDetectiveModule.jsx --output-path ./dist",
-    "lint": "eslint includes/modules/",
-    "test": "jest",
-    "test:coverage": "jest --coverage"
+ "scripts": {
+  "build": "webpack --mode production",
+  "dev": "webpack --mode development --watch"
   },
   "devDependencies": {
-    "@babel/core": "^7.22.0",
-    "@babel/preset-env": "^7.22.0",
-    "@babel/preset-react": "^7.22.0",
-    "babel-loader": "^9.1.2",
+    "@babel/core": "^7.29.0",
+    "@babel/preset-env": "^7.29.2",
+    "@babel/preset-react": "^7.28.5",
+    "babel-loader": "^9.2.1",
     "eslint": "^8.43.0",
     "eslint-config-react-app": "^7.0.1",
     "eslint-plugin-react": "^7.32.2",
