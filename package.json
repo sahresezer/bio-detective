@@ -1,11 +1,11 @@
 {
   "name": "bio-detective-plugin",
   "version": "1.4.0",
-  "description": "Advanced AI-powered scientific article analysis with Biyonaz guidance",
+  "description": "BioInfoRange demo tool for scientific article analysis",
   "main": "bio-detective.php",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bioinforange/bio-detective"
+    "url": "https://github.com/sahresezer/bio-detective"
   },
   "keywords": [
     "wordpress",

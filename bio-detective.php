@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Bio Detective
  * Plugin URI: https://github.com/sahresezer/bio-detective
- * Description: Advanced scientific article analysis plugin. Detect genes, p-values, and molecular entities.
+ * Description: BioInfoRange demo tool for scientific article analysis. Detect genes, p-values, and molecular entities.
  * Version: 1.4.0
  * Author: Open Source Community
  * Author URI: https://github.com/sahresezer/bio-detective
