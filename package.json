@@ -1,6 +1,6 @@
 {
   "name": "bio-detective-plugin",
-  "version": "1.0.0",
+  "version": "1.4.0",
   "description": "Advanced AI-powered scientific article analysis with Biyonaz guidance",
   "main": "bio-detective.php",
   "repository": {
@@ -20,9 +20,9 @@
   ],
   "author": "BioInfoRange Team",
   "license": "GPL-2.0-or-later",
- "scripts": {
-  "build": "webpack --mode production",
-  "dev": "webpack --mode development --watch"
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development --watch"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",
