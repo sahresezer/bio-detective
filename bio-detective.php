@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name: Bio Detective
- * Plugin URI: https://bioinforange.com/bio-detective
- * Description: Advanced AI-powered scientific article analysis with Biyonaz guidance.
+ * Plugin URI: https://github.com/sahresezer/bio-detective
+ * Description: Advanced scientific article analysis plugin. Detect genes, p-values, and molecular entities.
  * Version: 1.4.0
- * Author: BioInfoRange Team
- * Author URI: https://bioinforange.com
+ * Author: Open Source Community
+ * Author URI: https://github.com/sahresezer/bio-detective
  * License: GPL v2 or later
  * Text Domain: bio-detective
  * Requires at least: 5.0

@@ -46,21 +46,11 @@ class Bio_Detective_Article_Detective_Module extends ET_Builder_Module {
 			'description'      => array(
 				'label'       => esc_html__( 'Description', 'bio-detective' ),
 				'type'        => 'textarea',
-				'default'     => 'Analyze scientific articles with Biyonaz AI guidance',
+				'default'     => 'Analyze scientific articles for bioinformatics content',
 				'toggle_slug' => 'general',
 			),
-			'enable_biyonaz'   => array(
-				'label'           => esc_html__( 'Enable Biyonaz AI', 'bio-detective' ),
-				'type'            => 'yes_no_button',
-				'options'         => array(
-					'on'  => esc_html__( 'Yes', 'bio-detective' ),
-					'off' => esc_html__( 'No', 'bio-detective' ),
-				),
-				'default'         => 'on',
-				'toggle_slug'     => 'general',
-			),
 			'show_gene_links'  => array(
-				'label'           => esc_html__( 'Link to NCBI', 'bio-detective' ),
+				'label'           => esc_html__( 'Show Gene Links', 'bio-detective' ),
 				'type'            => 'yes_no_button',
 				'options'         => array(
 					'on'  => esc_html__( 'Yes', 'bio-detective' ),

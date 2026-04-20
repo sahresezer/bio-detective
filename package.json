@@ -18,11 +18,11 @@
     "gene",
     "detection"
   ],
-  "author": "BioInfoRange Team",
+  "author": "Open Source Community",
   "license": "GPL-2.0-or-later",
-  "scripts": {
-    "build": "webpack --mode production",
-    "dev": "webpack --mode development --watch"
+ "scripts": {
+  "build": "webpack --mode production",
+  "dev": "webpack --mode development --watch"
   },
   "devDependencies": {
     "@babel/core": "^7.29.0",

@@ -45,11 +45,6 @@ The plugin seamlessly integrates with the Divi page builder, making it perfect f
 - **Model Organisms**: Detects commonly used species (Human, Mouse, Yeast, Zebrafish)
 - **Public Datasets**: Links to GEO, SRA, and TCGA repositories
 
-### 🤖 **AI-Powered Guidance**
-- **Biyonaz AI Assistant**: Real-time contextual feedback with mood-based responses
-- **Smart Scoring**: 0-100 quality metric for research rigor assessment
-- **Contextual Summaries**: Intelligent analysis of experimental design and methodology
-
 ### 🎨 **Seamless Integration**
 - **Full Divi Compatibility**: Native module for Divi page builder
 - **Shortcode Support**: Works with any WordPress theme
@@ -128,8 +123,7 @@ npm run build
 |---------|-------------|---------|
 | **Module Title** | Header text for the module | "Article Detective" |
 | **Description** | Custom description text | "Analyze scientific articles..." |
-| **Enable Biyonaz AI** | Toggle AI guidance on/off | On |
-| **Link to NCBI** | Enable gene database links | On |
+| **Show Gene Links** | Enable gene database links | On |
 | **Button Color** | Customize analyze button | #e91e63 |
 | **Text Alignment** | Left, center, or right | Left |
 
@@ -443,7 +437,7 @@ This plugin is licensed under the **GNU General Public License v2.0 or later**.
 
 ```
 Bio Detective - Advanced Scientific Article Analysis Plugin
-Copyright (C) 2026 BioInfoRange Team
+Copyright (C) 2026 Open Source Community
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -461,8 +455,6 @@ GNU General Public License for more details.
 ## 🙏 Credits
 
 ### Core Team
-- **BioInfoRange Team**: Plugin development and bioinformatics expertise
-- **Biyonaz AI**: AI guidance system and contextual analysis
 - **Open Source Community**: React, WordPress, and bioinformatics tools
 
 ### Acknowledgments
@@ -480,9 +472,8 @@ To all researchers and bioinformatics professionals who inspired this project by
 
 ### Getting Help
 
-- **📧 Email**: support@bioinforange.com
+- **📧 Email**: sahrehilalsezer@gmail.com
 - **🐛 Issues**: [GitHub Issues](https://github.com/sahresezer/bio-detective/issues)
-- **📖 Documentation**: [BioInfoRange Docs](https://bioinforange.com/bio-detective-docs)
 - **💬 Community**: [WordPress Forums](https://wordpress.org/support/plugin/bio-detective/)
 
 ### Feature Requests
@@ -499,8 +490,7 @@ Have an idea for new bioinformatics analysis features? We'd love to hear it!
 ## 🔄 Changelog
 
 ### Version 1.1.0 (April 17, 2026)
-- ✨ **Free Premium Analysis**: Complete bioinformatics insight system
-- 🎨 **Enhanced Divi Integration**: Improved module settings and responsiveness
+- ✨ **Enhanced Divi Integration**: Improved module settings and responsiveness
 - 🔧 **REST API**: Programmatic access for developers
 - 📱 **Mobile Optimization**: Better responsive design
 - 🐛 **Bug Fixes**: Various stability improvements
@@ -508,7 +498,6 @@ Have an idea for new bioinformatics analysis features? We'd love to hear it!
 ### Version 1.0.0 (Initial Release)
 - 🧬 Gene detection with NCBI integration
 - 📊 P-value extraction
-- 🤖 Biyonaz AI guidance
 - 🎨 Divi compatibility
 - 📱 Responsive interface
 
